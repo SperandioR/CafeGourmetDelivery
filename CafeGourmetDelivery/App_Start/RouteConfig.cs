@@ -16,7 +16,8 @@ namespace CafeGourmetDelivery
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                //Modifique a rota padrão para apontar para o controlador Cafe e a ação
+                defaults: new { controller = "Cafe", action = "Index", id = UrlParameter.Optional }
             );
         }
     }
