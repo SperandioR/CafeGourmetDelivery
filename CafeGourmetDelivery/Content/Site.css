@@ -18,3 +18,45 @@ select,
 textarea {
     max-width: 280px;
 }
+
+
+/* site.css */
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.hero-section {
+    background: url('../images/coffee-background.jpg') no-repeat center center;
+    background-size: cover;
+    color: #4e342e;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.text-brown {
+    color: #4e342e;
+}
+
+.bg-coffee {
+    background-color: #6f4e37;
+}
+
+.btn-dark {
+    background-color: #3e2723;
+    border-color: #3e2723;
+}
+
+.menu-preview-section img {
+    max-width: 100%;
+    height: auto;
+    border: 2px solid #4e342e;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.menu-preview-section h4 {
+    color: #ffca28;
+}
+
+.menu-preview-section p {
+    color: #e0e0e0;
+}
