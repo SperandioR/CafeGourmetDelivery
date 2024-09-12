@@ -3,9 +3,41 @@
     ViewBag.Title = "Café Gourmet Delivery";
 }
 
-<div class="container">
-    <h1>Bem-vindo ao Café Gourmet Delivery</h1>
-    <p>Experimente o melhor do café gourmet entregue na sua porta.</p>
-    <a href="@Url.Action("Menu", "Cafe")" class="btn btn-primary">Ver Menu</a>
-    <a href="@Url.Action("Sobre", "Cafe")" class="btn btn-secondary">Sobre Nós</a>
+<div class="hero-section" style="background-color: #f3e9dc;">
+    <div class="container py-5">
+        <div class="row align-items-center">
+            <div class="col-md-6 text-center">
+                <h1 class="display-4 text-brown">Bem-vindo ao Café Gourmet Delivery</h1>
+                <p class="lead">Experimente o melhor do café gourmet entregue na sua porta.</p>
+                <a href="@Url.Action("Menu", "Cafe")" class="btn btn-dark btn-lg mt-3">Ver Menu</a>
+                <a href="@Url.Action("Sobre", "Cafe")" class="btn btn-secondary btn-lg mt-3">Sobre Nós</a>
+            </div>
+            <div class="col-md-6 text-center">
+                <img src="~/images/barista.png" class="img-fluid" alt="Barista feliz preparando café">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="menu-preview-section py-5 bg-coffee text-light">
+    <div class="container">
+        <h2 class="text-center mb-4">Nossos Produtos</h2>
+        <div class="row">
+            <div class="col-md-4 text-center">
+                <img src="~/images/cafe-latte.png" class="img-fluid rounded" alt="Café Latte">
+                <h4 class="mt-2">Café Latte</h4>
+                <p>Uma combinação perfeita de café expresso e leite vaporizado.</p>
+            </div>
+            <div class="col-md-4 text-center">
+                <img src="~/images/cappuccino.png" class="img-fluid rounded" alt="Cappuccino">
+                <h4 class="mt-2">Cappuccino</h4>
+                <p>Espuma cremosa, leite quente e uma dose de café expresso.</p>
+            </div>
+            <div class="col-md-4 text-center">
+                <img src="~/images/expresso.png" class="img-fluid rounded" alt="Café Expresso">
+                <h4 class="mt-2">Café Expresso</h4>
+                <p>Intenso, aromático e encorpado, para os amantes de café puro.</p>
+            </div>
+        </div>
+    </div>
 </div>
