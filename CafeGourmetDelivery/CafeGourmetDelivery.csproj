@@ -145,9 +145,12 @@
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Content\imagens\barista.png" />
+    <Content Include="Content\imagens\bolocenoura.jpg" />
     <Content Include="Content\imagens\cafecomleite.png" />
     <Content Include="Content\imagens\cappuccino.png" />
+    <Content Include="Content\imagens\Cookies.png" />
     <Content Include="Content\imagens\copodecafe.png" />
+    <Content Include="Content\imagens\croissant.png" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />

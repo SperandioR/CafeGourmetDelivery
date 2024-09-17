@@ -3,14 +3,84 @@
     ViewBag.Title = "Menu";
 }
 
-<div class="container">
-    <h1>Nosso Menu</h1>
-    <ul class="list-group">
-        <li class="list-group-item">Café Expresso - R$10,00</li>
-        <li class="list-group-item">Café Latte - R$12,00</li>
-        <li class="list-group-item">Cappuccino - R$14,00</li>
-        <li class="list-group-item">Bolo de Cenoura - R$8,00</li>
-        <li class="list-group-item">Cookies de Chocolate - R$5,00</li>
-    </ul>
-    <a href="@Url.Action("Contato", "Cafe")" class="btn btn-primary mt-3">Encomendar Agora</a>
+<!-- Seção do Menu -->
+<div class="menu-section py-5" style="background-color: #f4f1eb;">
+    <div class="container">
+        <h2 class="text-center mb-5 text-brown" style="font-weight: bold; font-size: 2.5rem;">Nosso Menu</h2>
+
+        <!-- Divisão de Produtos em Colunas -->
+        <div class="row">
+            <!-- Produto 1: Café Expresso -->
+            <div class="col-md-4 text-center mb-4">
+                <div class="menu-item">
+                    <!-- Imagem com animação hover -->
+                    <img src="~/Content/imagens/copodecafe.png" class="img-fluid rounded menu-img" alt="Café Expresso">
+                    <h4 class="mt-3">Café Expresso</h4>
+                    <p class="text-muted">Intenso, aromático e encorpado, para os amantes de café puro.</p>
+                    <p class="menu-price"><strong>R$10,00</strong></p>
+                    <button class="btn btn-dark btn-lg mt-3">Peça Agora</button>
+                </div>
+            </div>
+
+            <!-- Produto 2: Café Latte -->
+            <div class="col-md-4 text-center mb-4">
+                <div class="menu-item">
+                    <img src="~/Content/imagens/cafecomleite.png" class="img-fluid rounded menu-img" alt="Café com Leite">
+                    <h4 class="mt-3">Café Latte</h4>
+                    <p class="text-muted">Café expresso e leite vaporizado em perfeita harmonia.</p>
+                    <p class="menu-price"><strong>R$12,00</strong></p>
+                    <button class="btn btn-dark btn-lg mt-3">Peça Agora</button>
+                </div>
+            </div>
+
+            <!-- Produto 3: Cappuccino -->
+            <div class="col-md-4 text-center mb-4">
+                <div class="menu-item">
+                    <img src="~/Content/imagens/cappuccino.png" class="img-fluid rounded menu-img" alt="Cappuccino">
+                    <h4 class="mt-3">Cappuccino</h4>
+                    <p class="text-muted">Espuma cremosa e uma dose perfeita de expresso.</p>
+                    <p class="menu-price"><strong>R$14,00</strong></p>
+                    <button class="btn btn-dark btn-lg mt-3">Peça Agora</button>
+                </div>
+            </div>
+
+            <!-- Produto 4: Bolo de Cenoura -->
+            <div class="col-md-4 text-center mb-4">
+                <div class="menu-item">
+                    <img src="~/Content/imagens/bolocenoura.jpg" class="img-fluid rounded menu-img" alt="Bolo de Cenoura">
+                    <h4 class="mt-3">Bolo de Cenoura</h4>
+                    <p class="text-muted">Delicioso bolo de cenoura com cobertura de chocolate.</p>
+                    <p class="menu-price"><strong>R$8,00</strong></p>
+                    <button class="btn btn-dark btn-lg mt-3">Peça Agora</button>
+                </div>
+            </div>
+
+            <!-- Produto 5: Cookies de Chocolate -->
+            <div class="col-md-4 text-center mb-4">
+                <div class="menu-item">
+                    <img src="~/Content/imagens/Cookies.png" class="img-fluid rounded menu-img" alt="Cookies de Chocolate">
+                    <h4 class="mt-3">Cookies de Chocolate</h4>
+                    <p class="text-muted">Crocante por fora, macio por dentro, com gotas de chocolate.</p>
+                    <p class="menu-price"><strong>R$5,00</strong></p>
+                    <button class="btn btn-dark btn-lg mt-3">Peça Agora</button>
+                </div>
+            </div>
+
+            <!-- Produto 6: Croissant -->
+            <div class="col-md-4 text-center mb-4">
+                <div class="menu-item">
+                    <img src="~/Content/imagens/croissant.png" class="img-fluid rounded menu-img" alt="Croissant">
+                    <h4 class="mt-3">Croissant</h4>
+                    <p class="text-muted">Deliciosa massa folhada crocante, perfeita para acompanhar seu café.</p>
+                    <p class="menu-price"><strong>R$7,00</strong></p>
+                    <button class="btn btn-dark btn-lg mt-3">Peça Agora</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Botão de Encomenda Geral -->
+        <div class="text-center mt-5">
+            <a href="@Url.Action("Contato", "Cafe")" class="btn btn-primary btn-lg">Encomendar Agora</a>
+        </div>
+    </div>
 </div>

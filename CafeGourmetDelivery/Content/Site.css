@@ -60,3 +60,82 @@ body {
 .menu-preview-section p {
     color: #e0e0e0;
 }
+
+<!-- Estilos adicionais para melhorar a apresentação -->
+<style >
+/* Estilo geral */
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+.text-brown {
+    color: #5d4037; /* Marrom sofisticado */
+}
+
+/* Animações para imagens no menu */
+.menu-img {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+    .menu-img:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+/* Botões */
+.btn-dark {
+    background-color: #3e2723;
+    border-color: #3e2723;
+    color: #fff;
+    transition: background-color 0.3s ease-in-out;
+}
+
+    .btn-dark:hover {
+        background-color: #5d4037;
+        border-color: #5d4037;
+    }
+
+/* Preço dos produtos */
+.menu-price {
+    font-size: 1.2rem;
+    color: #5d4037;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+/* Estilo das descrições dos produtos */
+.menu-item h4 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 1rem;
+    color: #3e2723;
+}
+
+.menu-item p {
+    font-size: 1rem;
+    color: #757575;
+}
+
+/* Fundo e espaçamento da seção */
+.menu-section {
+    background-color: #f4f1eb;
+    padding: 60px 0;
+}
+
+/* Layout responsivo */
+@media (max-width: 768px) {
+    .menu-item h4 {
+        font-size: 1.25rem;
+    }
+
+    .menu-item p {
+        font-size: 0.9rem;
+    }
+
+    .btn-lg {
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+}
+
+</style >
