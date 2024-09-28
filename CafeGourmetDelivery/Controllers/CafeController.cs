@@ -32,5 +32,12 @@ namespace CafeGourmetDelivery.Controllers
         {
             return View();
         }
+
+        // Método de Ação para fazer o pedido de um produto
+        public ActionResult Pedido(string nomeProduto)
+        {
+            ViewBag.NomeProduto = nomeProduto;
+            return View();
+        }
     }
 }
