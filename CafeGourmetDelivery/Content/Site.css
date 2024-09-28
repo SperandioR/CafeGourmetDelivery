@@ -61,7 +61,8 @@ body {
     color: #e0e0e0;
 }
 
-<!-- Estilos adicionais para melhorar a apresentação -->
+/*Estilos adicionais para melhorar a apresentação*/ 
+
 <style >
 /* Estilo geral */
 body {
@@ -136,6 +137,69 @@ body {
         padding: 10px 20px;
         font-size: 1rem;
     }
+}
+
+/*Estilo Customizado - Pedido*/
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #d7c2b8; /* Fundo do site em tom de marrom claro */
+}
+
+.pedido-form label.quantidade-label {
+    color: #3e2723; /* Marrom escuro */
+}
+
+
+.pedido-section {
+    background-color: #f4f1eb; /* Fundo do card em tom caramelo claro */
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    padding: 40px;
+}
+
+.pedido-produto-imagem {
+    transition: transform 0.3s ease;
+    border: 5px solid #c1a084; /* Borda em tom caramelo suave */
+}
+
+    .pedido-produto-imagem:hover {
+        transform: scale(1.1);
+    }
+
+.btn-confirmar {
+    background-color: #b57c58; /* Marrom claro */
+    color: #fff;
+    border: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+    .btn-confirmar:hover {
+        background-color: #a76b48; /* Tom de marrom um pouco mais escuro ao passar o mouse */
+        transform: scale(1.05);
+    }
+
+.pedido-form label {
+    color: #f8e7d1; /* Cor creme para contraste com o fundo */
+}
+
+.pedido-form input[type="number"] {
+    border: 2px solid #d5a67a; /* Bordas em tom dourado suave */
+    background-color: #f2e1d9;
+    color: #4b2e2a;
+}
+
+    .pedido-form input[type="number"]:focus {
+        border-color: #b57c58; /* Destaque para a borda ao focar */
+    }
+
+h2.text-light, h4.text-light {
+    color: #f8e7d1; /* Cor creme para destacar os títulos */
+}
+
+.card-body p {
+    font-size: 1.1rem;
+    color: #f0d5c0; /* Creme suave para uma leitura mais fácil no fundo claro */
 }
 
 </style >
