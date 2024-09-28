@@ -13,12 +13,11 @@
             <!-- Produto 1: Café Expresso -->
             <div class="col-md-4 text-center mb-4">
                 <div class="menu-item">
-                    <!-- Imagem com animação hover -->
                     <img src="~/Content/imagens/copodecafe.png" class="img-fluid rounded menu-img" alt="Café Expresso">
                     <h4 class="mt-3">Café Expresso</h4>
                     <p class="text-muted">Intenso, aromático e encorpado, para os amantes de café puro.</p>
                     <p class="menu-price"><strong>R$10,00</strong></p>
-                    <button class="btn btn-dark btn-lg mt-3">Peça Agora</button>
+                    <a href="@Url.Action("Pedido", "Cafe", new { nomeProduto = "Café Expresso" })" class="btn btn-dark btn-lg mt-3">Peça Agora</a>
                 </div>
             </div>
 
@@ -29,7 +28,7 @@
                     <h4 class="mt-3">Café Latte</h4>
                     <p class="text-muted">Café expresso e leite vaporizado em perfeita harmonia.</p>
                     <p class="menu-price"><strong>R$12,00</strong></p>
-                    <button class="btn btn-dark btn-lg mt-3">Peça Agora</button>
+                    <a href="@Url.Action("Pedido", "Cafe", new { nomeProduto = "Café Latte" })" class="btn btn-dark btn-lg mt-3">Peça Agora</a>
                 </div>
             </div>
 
@@ -40,7 +39,7 @@
                     <h4 class="mt-3">Cappuccino</h4>
                     <p class="text-muted">Espuma cremosa e uma dose perfeita de expresso.</p>
                     <p class="menu-price"><strong>R$14,00</strong></p>
-                    <button class="btn btn-dark btn-lg mt-3">Peça Agora</button>
+                    <a href="@Url.Action("Pedido", "Cafe", new { nomeProduto = "Cappuccino" })" class="btn btn-dark btn-lg mt-3">Peça Agora</a>
                 </div>
             </div>
 
@@ -51,7 +50,7 @@
                     <h4 class="mt-3">Bolo de Cenoura</h4>
                     <p class="text-muted">Delicioso bolo de cenoura com cobertura de chocolate.</p>
                     <p class="menu-price"><strong>R$8,00</strong></p>
-                    <button class="btn btn-dark btn-lg mt-3">Peça Agora</button>
+                    <a href="@Url.Action("Pedido", "Cafe", new { nomeProduto = "Bolo de Cenoura" })" class="btn btn-dark btn-lg mt-3">Peça Agora</a>
                 </div>
             </div>
 
@@ -62,7 +61,7 @@
                     <h4 class="mt-3">Cookies de Chocolate</h4>
                     <p class="text-muted">Crocante por fora, macio por dentro, com gotas de chocolate.</p>
                     <p class="menu-price"><strong>R$5,00</strong></p>
-                    <button class="btn btn-dark btn-lg mt-3">Peça Agora</button>
+                    <a href="@Url.Action("Pedido", "Cafe", new { nomeProduto = "Cookies de Chocolate" })" class="btn btn-dark btn-lg mt-3">Peça Agora</a>
                 </div>
             </div>
 
@@ -71,9 +70,9 @@
                 <div class="menu-item">
                     <img src="~/Content/imagens/croissant.png" class="img-fluid rounded menu-img" alt="Croissant">
                     <h4 class="mt-3">Croissant</h4>
-                    <p class="text-muted">Deliciosa massa folhada crocante, perfeita para acompanhar seu café.</p>
+                    <p class="text-muted">Croissant clássico, leve e folhado, perfeito para o café.</p>
                     <p class="menu-price"><strong>R$7,00</strong></p>
-                    <button class="btn btn-dark btn-lg mt-3">Peça Agora</button>
+                    <a href="@Url.Action("Pedido", "Cafe", new { nomeProduto = "Croissant" })" class="btn btn-dark btn-lg mt-3">Peça Agora</a>
                 </div>
             </div>
         </div>
