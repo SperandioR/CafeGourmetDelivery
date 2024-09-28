@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "Pedido";
+}
+
+<div class="container py-5">
+    <h2 class="text-center mb-4">Confirmar Pedido</h2>
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">@ViewBag.NomeProduto</h4>
+            <p class="card-text">Confirme o seu pedido do produto selecionado abaixo.</p>
+
+            <form action="@Url.Action("ConfirmarPedido", "Cafe")" method="post">
+                <div class="form-group">
+                    <label for="quantidade">Quantidade:</label>
+                    <input type="number" class="form-control" id="quantidade" name="quantidade" value="1" min="1">
+                </div>
+                <input type="hidden" name="nomeProduto" value="@ViewBag.NomeProduto">
+                <button type="submit" class="btn btn-success mt-3">Confirmar Pedido</button>
+            </form>
+        </div>
+    </div>
+</div>

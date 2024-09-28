@@ -193,10 +193,12 @@
     <Content Include="Views\Cafe\Menu.cshtml" />
     <Content Include="Views\Cafe\Sobre.cshtml" />
     <Content Include="Views\Cafe\Contato.cshtml" />
+    <Content Include="Views\Cafe\Pedido.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\Pedido\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
