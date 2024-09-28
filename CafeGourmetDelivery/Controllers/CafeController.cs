@@ -39,5 +39,14 @@ namespace CafeGourmetDelivery.Controllers
             ViewBag.NomeProduto = nomeProduto;
             return View();
         }
+
+        [HttpPost]
+        public ActionResult ConfirmarPedido(string nomeProduto, int quantidade)
+        {
+            // Lógica para salvar o pedido ou redirecionar o cliente a uma página de confirmação
+            ViewBag.Mensagem = $"Pedido confirmado: {quantidade}x {nomeProduto}. Obrigado por comprar conosco!";
+            return View("Confirmacão");
+        }
+
     }
 }
