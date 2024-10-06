@@ -2,10 +2,23 @@
     ViewBag.Title = "Confirmação de Pedido";
 }
 
+<!-- Seção de Confirmação -->
 <div class="container py-5">
-    <h2 class="text-center mb-4">Pedido Confirmado</h2>
-    <p class="text-center">@ViewBag.Mensagem</p>
-</div>
+    <div class="confirmacao-section card p-5 text-center">
+        <h2 class="text-success mb-4" style="font-weight: bold;">Pedido Confirmado!</h2>
 
+        <div class="imagem-destaque mb-4">
+            <img src="~/Content/imagens/sucesso.png" class="img-fluid pedido-sucesso-img" alt="Pedido Confirmado" style="max-width: 150px;">
+        </div>
+
+        <p class="lead text-muted">@ViewBag.Mensagem</p>
+
+        <p class="text-muted mb-4">
+            Seu pedido está sendo preparado com carinho e será processado em breve.
+        </p>
+
+        <a href="@Url.Action("Menu", "Cafe")" class="btn btn-primary btn-lg px-5 py-3" style="background-color: #6f4e37; border: none;">Voltar ao Menu</a>
+    </div>
+</div>
 
 <link rel="stylesheet" href="~/Content/Site.css" />

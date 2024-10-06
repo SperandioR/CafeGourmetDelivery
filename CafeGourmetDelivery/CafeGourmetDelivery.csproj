@@ -155,6 +155,7 @@
     <Content Include="Content\imagens\Cookies.png" />
     <Content Include="Content\imagens\copodecafe.png" />
     <Content Include="Content\imagens\croissant.png" />
+    <Content Include="Content\imagens\sucesso.png" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />

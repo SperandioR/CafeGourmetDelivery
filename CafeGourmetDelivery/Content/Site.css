@@ -202,4 +202,35 @@ h2.text-light, h4.text-light {
     color: #f0d5c0; /* Creme suave para uma leitura mais fácil no fundo claro */
 }
 
+/* Efeito de destaque para a imagem de sucesso */
+.imagem-destaque {
+    animation: pulse 2s infinite;
+}
+
+.pedido-sucesso-img {
+    border: 5px solid #ffca28; /* Contorno dourado para destacar */
+    border-radius: 50%; /* Torna a borda arredondada */
+    box-shadow: 0 0 15px #ffca28; /* Sombra de brilho para destaque */
+    transition: transform 0.3s ease-in-out;
+}
+
+    .pedido-sucesso-img:hover {
+        transform: scale(1.1); /* Aumenta um pouco a imagem ao passar o mouse */
+    }
+
+/* Animação de pulso suave */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
 </style >
