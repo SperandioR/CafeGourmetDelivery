@@ -70,9 +70,47 @@ namespace CafeGourmetDelivery.Controllers
         [HttpPost]
         public ActionResult ConfirmarPedido(string nomeProduto, int quantidade)
         {
-            // Lógica para salvar o pedido ou redirecionar o cliente a uma página de confirmação
-            ViewBag.Mensagem = $"Pedido confirmado: {quantidade}x {nomeProduto}. Obrigado por comprar conosco!";
-            return View("Confirmacão");
+            // Calcula o valor total com base no produto selecionado (valores exemplo)
+            decimal precoUnitario = 0;
+            switch (nomeProduto)
+            {
+                case "Café Expresso":
+                    precoUnitario = 10.00m;
+                    break;
+                case "Café Latte":
+                    precoUnitario = 12.00m;
+                    break;
+                case "Cappuccino":
+                    precoUnitario = 14.00m;
+                    break;
+                case "Bolo de Cenoura":
+                    precoUnitario = 8.00m;
+                    break;
+                case "Cookies de Chocolate":
+                    precoUnitario = 5.00m;
+                    break;
+                case "Croissant":
+                    precoUnitario = 7.00m;
+                    break;
+            }
+
+            decimal precoTotal = precoUnitario * quantidade;
+
+            // Passa as informações para a view de pagamento
+            ViewBag.NomeProduto = nomeProduto;
+            ViewBag.Quantidade = quantidade;
+            ViewBag.PrecoTotal = precoTotal;
+
+            return View("Pagamento");
+        }
+
+
+        [HttpPost]
+        public ActionResult ConfirmarPagamento(string nome, string numeroCartao, string validade, string cvv)
+        {
+            // Lógica para processar o pagamento (simulação)
+            ViewBag.Mensagem = "Pagamento realizado com sucesso! Obrigado por seu pedido.";
+            return View("Confirmacao");
         }
 
 
