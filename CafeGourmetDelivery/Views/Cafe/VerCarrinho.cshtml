@@ -26,7 +26,7 @@
                                 <label for="quantidade-@item.NomeProduto" class="quantidade-label">Quantidade:</label>
                                 <input type="number" id="quantidade-@item.NomeProduto" name="quantidades[@item.NomeProduto]" value="@item.Quantidade" min="1" class="form-control" style="width: 80px; display: inline-block;">
 
-                                <p>Subtotal: R$ @(item.Preco * item.Quantidade).ToString("0.00")</p>
+                                <p>Subtotal: R$ @((item.Preco * item.Quantidade).ToString("0.00"))</p> <!-- Corrigido aqui -->
 
                                 <button type="button" class="btn btn-dark mt-3" onclick="location.href='@Url.Action("RemoverDoCarrinho", "Cafe", new { nomeProduto = item.NomeProduto })'">
                                     Remover Item
@@ -39,7 +39,7 @@
 
             <!-- Total do Carrinho e Ação de Finalizar Pedido -->
             <div class="text-center mt-5">
-                <h3 class="text-brown">Total do Carrinho: R$ @Model.ObterTotal().ToString("0.00")</h3>
+                <h3 class="text-brown">Total do Carrinho: R$ @(Model.ObterTotal().ToString("0.00"))</h3> <!-- Mantido -->
                 <button type="submit" class="btn btn-confirmar btn-lg mt-4">
                     Atualizar Carrinho
                 </button>
