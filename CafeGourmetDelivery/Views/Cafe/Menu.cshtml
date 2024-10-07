@@ -17,7 +17,7 @@
                     <h4 class="mt-3">Café Expresso</h4>
                     <p class="text-muted">Intenso, aromático e encorpado, para os amantes de café puro.</p>
                     <p class="menu-price"><strong>R$10,00</strong></p>
-                    <a href="@Url.Action("Pedido", "Cafe", new { nomeProduto = "Café Expresso", caminhoImagem = "~/Content/imagens/copodecafe.png" })" class="btn btn-dark btn-lg mt-3">Peça Agora</a>
+                    <button onclick="location.href='@Url.Action("AdicionarAoCarrinho", "Cafe", new { nomeProduto = "Café Expresso", caminhoImagem = "~/Content/imagens/copodecafe.png", preco = 10.00m, quantidade = 1 })'" class="btn btn-dark btn-lg mt-3">Peça Agora</button>
                 </div>
             </div>
 
@@ -28,7 +28,7 @@
                     <h4 class="mt-3">Café Latte</h4>
                     <p class="text-muted">Café expresso e leite vaporizado em perfeita harmonia.</p>
                     <p class="menu-price"><strong>R$12,00</strong></p>
-                    <a href="@Url.Action("Pedido", "Cafe", new { nomeProduto = "Café Latte", caminhoImagem = "~/Content/imagens/cafecomleite.png" })" class="btn btn-dark btn-lg mt-3">Peça Agora</a>
+                    <button onclick="location.href='@Url.Action("AdicionarAoCarrinho", "Cafe", new { nomeProduto = "Café Latte", caminhoImagem = "~/Content/imagens/cafecomleite.png", preco = 12.00m, quantidade = 1 })'" class="btn btn-dark btn-lg mt-3">Peça Agora</button>
                 </div>
             </div>
 
@@ -39,7 +39,7 @@
                     <h4 class="mt-3">Cappuccino</h4>
                     <p class="text-muted">Espuma cremosa e uma dose perfeita de expresso.</p>
                     <p class="menu-price"><strong>R$14,00</strong></p>
-                    <a href="@Url.Action("Pedido", "Cafe", new { nomeProduto = "Cappuccino", caminhoImagem = "~/Content/imagens/Cappuccino.png"  })" class="btn btn-dark btn-lg mt-3">Peça Agora</a>
+                    <button onclick="location.href='@Url.Action("AdicionarAoCarrinho", "Cafe", new { nomeProduto = "Cappuccino", caminhoImagem = "~/Content/imagens/cappuccino.png", preco = 14.00m, quantidade = 1 })'" class="btn btn-dark btn-lg mt-3">Peça Agora</button>
                 </div>
             </div>
 
@@ -50,7 +50,7 @@
                     <h4 class="mt-3">Bolo de Cenoura</h4>
                     <p class="text-muted">Delicioso bolo de cenoura com cobertura de chocolate.</p>
                     <p class="menu-price"><strong>R$8,00</strong></p>
-                    <a href="@Url.Action("Pedido", "Cafe", new { nomeProduto = "Bolo de Cenoura", caminhoImagem = "~/Content/imagens/bolocenoura.jpg" })" class="btn btn-dark btn-lg mt-3">Peça Agora</a>
+                    <button onclick="location.href='@Url.Action("AdicionarAoCarrinho", "Cafe", new { nomeProduto = "Bolo de Cenoura", caminhoImagem = "~/Content/imagens/bolocenoura.jpg", preco = 8.00m, quantidade = 1 })'" class="btn btn-dark btn-lg mt-3">Peça Agora</button>
                 </div>
             </div>
 
@@ -61,7 +61,7 @@
                     <h4 class="mt-3">Cookies de Chocolate</h4>
                     <p class="text-muted">Crocante por fora, macio por dentro, com gotas de chocolate.</p>
                     <p class="menu-price"><strong>R$5,00</strong></p>
-                    <a href="@Url.Action("Pedido", "Cafe", new { nomeProduto = "Cookies de Chocolate", caminhoImagem = "~/Content/imagens/Cookies.png" })" class="btn btn-dark btn-lg mt-3">Peça Agora</a>
+                    <button onclick="location.href='@Url.Action("AdicionarAoCarrinho", "Cafe", new { nomeProduto = "Cookies de Chocolate", caminhoImagem = "~/Content/imagens/Cookies.png", preco = 5.00m, quantidade = 1 })'" class="btn btn-dark btn-lg mt-3">Peça Agora</button>
                 </div>
             </div>
 
@@ -72,7 +72,7 @@
                     <h4 class="mt-3">Croissant</h4>
                     <p class="text-muted">Croissant clássico, leve e folhado, perfeito para o café.</p>
                     <p class="menu-price"><strong>R$7,00</strong></p>
-                    <a href="@Url.Action("Pedido", "Cafe", new { nomeProduto = "Croissant", caminhoImagem = "~/Content/imagens/croissant.png" })" class="btn btn-dark btn-lg mt-3">Peça Agora</a>
+                    <button onclick="location.href='@Url.Action("AdicionarAoCarrinho", "Cafe", new { nomeProduto = "Croissant", caminhoImagem = "~/Content/imagens/croissant.png", preco = 7.00m, quantidade = 1 })'" class="btn btn-dark btn-lg mt-3">Peça Agora</button>
                 </div>
             </div>
         </div>

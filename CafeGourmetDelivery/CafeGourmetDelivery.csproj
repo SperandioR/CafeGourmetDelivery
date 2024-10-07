@@ -196,8 +196,9 @@
     <Content Include="Views\Cafe\Sobre.cshtml" />
     <Content Include="Views\Cafe\Contato.cshtml" />
     <Content Include="Views\Cafe\Pedido.cshtml" />
-    <Content Include="Views\Cafe\Confirmacao.cshtml" />
     <Content Include="Views\Cafe\Pagamento.cshtml" />
+    <Content Include="Views\Cafe\VerCarrinho.cshtml" />
+    <Content Include="Views\Cafe\Confirmacao.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

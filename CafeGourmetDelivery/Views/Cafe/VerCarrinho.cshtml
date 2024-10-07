@@ -1,0 +1,62 @@
+﻿@model CafeGourmetDelivery.Models.Carrinho
+
+@{
+    ViewBag.Title = "Carrinho de Compras";
+}
+
+<!-- Carrinho de Compras -->
+<div class="container py-5">
+    <h2 class="text-center text-brown mb-5" style="font-weight: bold; font-size: 2.5rem;">Seu Carrinho</h2>
+
+    @if (Model.Itens != null && Model.Itens.Count > 0)
+    {
+        <!-- Listagem dos Itens no Carrinho -->
+        <form method="post" action="@Url.Action("AtualizarCarrinho", "Cafe")">
+            <div class="row">
+                @foreach (var item in Model.Itens)
+                {
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="card pedido-section">
+                            <img src="@Url.Content(item.CaminhoImagem)" alt="@item.NomeProduto" class="card-img-top pedido-produto-imagem img-fluid rounded">
+                            <div class="card-body">
+                                <h4 class="text-brown">@item.NomeProduto</h4>
+                                <p>Preço Unitário: R$ @item.Preco.ToString("0.00")</p>
+
+                                <!-- Campo para atualizar a quantidade -->
+                                <label for="quantidade-@item.NomeProduto" class="quantidade-label">Quantidade:</label>
+                                <input type="number" id="quantidade-@item.NomeProduto" name="quantidades[@item.NomeProduto]" value="@item.Quantidade" min="1" class="form-control" style="width: 80px; display: inline-block;">
+
+                                <p>Subtotal: R$ @(item.Preco * item.Quantidade).ToString("0.00")</p>
+
+                                <button type="button" class="btn btn-dark mt-3" onclick="location.href='@Url.Action("RemoverDoCarrinho", "Cafe", new { nomeProduto = item.NomeProduto })'">
+                                    Remover Item
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+
+            <!-- Total do Carrinho e Ação de Finalizar Pedido -->
+            <div class="text-center mt-5">
+                <h3 class="text-brown">Total do Carrinho: R$ @Model.ObterTotal().ToString("0.00")</h3>
+                <button type="submit" class="btn btn-confirmar btn-lg mt-4">
+                    Atualizar Carrinho
+                </button>
+                <button type="button" class="btn btn-confirmar btn-lg mt-4" onclick="location.href='@Url.Action("Pagamento", "Cafe")'">
+                    Ir para Pagamento
+                </button>
+            </div>
+        </form>
+    }
+    else
+    {
+        <!-- Caso o Carrinho esteja Vazio -->
+        <div class="text-center">
+            <h4 class="text-brown">Seu carrinho está vazio!</h4>
+            <a href="@Url.Action("Menu", "Cafe")" class="btn btn-dark btn-lg mt-3">Explorar Menu</a>
+        </div>
+    }
+</div>
+
+<link rel="stylesheet" href="~/Content/Site.css" />

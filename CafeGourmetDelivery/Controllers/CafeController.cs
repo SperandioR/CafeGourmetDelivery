@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CafeGourmetDelivery.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -29,6 +30,12 @@ namespace CafeGourmetDelivery.Controllers
 
         // Página de contato
         public ActionResult Contato()
+        {
+            return View();
+        }
+        
+        // Ação para a página de pagamento
+        public ActionResult Pagamento()
         {
             return View();
         }
@@ -67,10 +74,27 @@ namespace CafeGourmetDelivery.Controllers
             return View();
         }
 
+        // Método para adicionar um item ao carrinho
+        public ActionResult AdicionarAoCarrinho(string nomeProduto, string caminhoImagem, decimal preco, int quantidade)
+        {
+            var carrinho = Session["Carrinho"] as Carrinho ?? new Carrinho();
+            carrinho.AdicionarItem(nomeProduto, caminhoImagem, preco, quantidade);
+            Session["Carrinho"] = carrinho;
+
+            return RedirectToAction("VerCarrinho");
+        }
+
+        // Página do carrinho
+        public ActionResult VerCarrinho()
+        {
+            var carrinho = Session["Carrinho"] as Carrinho ?? new Carrinho();
+            return View(carrinho);
+        }
+
         [HttpPost]
         public ActionResult ConfirmarPedido(string nomeProduto, int quantidade)
         {
-            // Calcula o valor total com base no produto selecionado (valores exemplo)
+            // Calcula o valor total com base no produto selecionado
             decimal precoUnitario = 0;
             switch (nomeProduto)
             {
@@ -104,15 +128,59 @@ namespace CafeGourmetDelivery.Controllers
             return View("Pagamento");
         }
 
+        [HttpPost]
+        public ActionResult AtualizarCarrinho(Dictionary<string, int> quantidades)
+        {
+            var carrinho = Session["Carrinho"] as Carrinho ?? new Carrinho();
+
+            foreach (var item in quantidades)
+            {
+                var nomeProduto = item.Key;
+                var novaQuantidade = item.Value;
+
+                if (novaQuantidade > 0)
+                {
+                    var produto = carrinho.Itens.FirstOrDefault(i => i.NomeProduto == nomeProduto);
+                    if (produto != null)
+                    {
+                        produto.Quantidade = novaQuantidade; // Atualiza a quantidade
+                    }
+                    else
+                    {
+                        // Caso o produto não exista no carrinho, adicione um novo
+                        // Aqui, você pode precisar buscar a informação do produto de um repositório ou banco de dados
+                        // Exemplo:
+                        // var produtoInfo = ...; // Busque o produto
+                        // carrinho.AdicionarItem(produtoInfo.Nome, produtoInfo.Imagem, produtoInfo.Preco, novaQuantidade);
+                    }
+                }
+                else
+                {
+                    // Se a quantidade é 0, remova o item do carrinho
+                    carrinho.Itens.RemoveAll(i => i.NomeProduto == nomeProduto);
+                }
+            }
+
+            Session["Carrinho"] = carrinho; // Atualiza a sessão com o carrinho modificado
+
+            return RedirectToAction("VerCarrinho"); // Redireciona para a página do carrinho
+        }
+
 
         [HttpPost]
         public ActionResult ConfirmarPagamento(string nome, string numeroCartao, string validade, string cvv)
         {
+            if (string.IsNullOrWhiteSpace(nome) || string.IsNullOrWhiteSpace(numeroCartao) ||
+                string.IsNullOrWhiteSpace(validade) || string.IsNullOrWhiteSpace(cvv))
+            {
+                ViewBag.Mensagem = "Por favor, preencha todos os campos.";
+                return View("Pagamento"); // Retorne para a mesma view com a mensagem
+            }
+
             // Lógica para processar o pagamento (simulação)
             ViewBag.Mensagem = "Pagamento realizado com sucesso! Obrigado por seu pedido.";
             return View("Confirmacao");
         }
-
 
     }
 }
