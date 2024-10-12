@@ -49,3 +49,6 @@ Integração com o Entity Framework:
 - Validação de Pagamento: Adicionar validações de dados no backend e segurança nas transações de pagamento.
 - Login e Autenticação: Implementar um sistema de login para clientes.
 - Interface com Banco de Dados para Pedidos: Salvar os detalhes do pedido e cliente no banco de dados após a confirmação do pagamento.
+
+![Sem título](https://github.com/user-attachments/assets/9e27efb8-5a1f-4af7-8e2f-cf6f9cdb814d)
+
