@@ -18,8 +18,12 @@ namespace CafeGourmetDelivery.Controllers
         // Página do menu
         public ActionResult Menu()
         {
-            // Aqui você pode adicionar lógica para buscar itens de um banco de dados
-            return View();
+            using (var context = new ApplicationDbContext())
+            {
+                // Busca os produtos do banco de dados
+                var produtos = context.Produtos.ToList();
+                return View(produtos); // Envia os produtos para a view
+            }
         }
 
         // Página sobre nós
@@ -33,12 +37,26 @@ namespace CafeGourmetDelivery.Controllers
         {
             return View();
         }
-        
+
         // Ação para a página de pagamento
         public ActionResult Pagamento()
         {
+            var carrinho = Session["Carrinho"] as Carrinho ?? new Carrinho();
+
+            if (carrinho.Itens.Count == 0)
+            {
+                ViewBag.Mensagem = "Seu carrinho está vazio!";
+                return View();
+            }
+
+            // Passando informações do carrinho para o ViewBag
+            ViewBag.NomeProduto = carrinho.Itens.FirstOrDefault()?.NomeProduto;
+            ViewBag.Quantidade = carrinho.Itens.FirstOrDefault()?.Quantidade;
+            ViewBag.PrecoTotal = carrinho.ObterTotal();
+
             return View();
         }
+
 
         // Método de Ação para fazer o pedido de um produto
         public ActionResult Pedido(string nomeProduto)
@@ -170,17 +188,56 @@ namespace CafeGourmetDelivery.Controllers
         [HttpPost]
         public ActionResult ConfirmarPagamento(string nome, string numeroCartao, string validade, string cvv)
         {
+            var carrinho = Session["Carrinho"] as Carrinho ?? new Carrinho();
+
+            // Verifique se o carrinho tem itens
+            if (carrinho.Itens.Count == 0)
+            {
+                ViewBag.Mensagem = "O carrinho está vazio. Não é possível processar o pagamento.";
+                return View("Pagamento"); // Retorna para a página de pagamento com a mensagem de erro
+            }
+
+            // Simulação de validação do pagamento (aqui você pode integrar com um serviço real de pagamento)
             if (string.IsNullOrWhiteSpace(nome) || string.IsNullOrWhiteSpace(numeroCartao) ||
                 string.IsNullOrWhiteSpace(validade) || string.IsNullOrWhiteSpace(cvv))
             {
-                ViewBag.Mensagem = "Por favor, preencha todos os campos.";
-                return View("Pagamento"); // Retorne para a mesma view com a mensagem
+                ViewBag.Mensagem = "Por favor, preencha todos os campos corretamente.";
+                return View("Pagamento"); // Retorna para a mesma view com a mensagem
             }
 
-            // Lógica para processar o pagamento (simulação)
+            // Se o pagamento for simulado como bem-sucedido, atualize o estoque dos produtos
+            using (var db = new ApplicationDbContext())
+            {
+                foreach (var item in carrinho.Itens)
+                {
+                    // Localiza o produto no banco de dados
+                    var produto = db.Produtos.FirstOrDefault(p => p.NomeProduto == item.NomeProduto);
+                    if (produto != null)
+                    {
+                        // Verifica se há quantidade disponível
+                        if (produto.QuantidadeDisponivel >= item.Quantidade)
+                        {
+                            // Subtrai a quantidade comprada do estoque
+                            produto.QuantidadeDisponivel -= item.Quantidade;
+                        }
+                        else
+                        {
+                            ViewBag.Mensagem = $"Estoque insuficiente para o produto {produto.NomeProduto}.";
+                            return View("Pagamento"); // Retorna para a página de pagamento com a mensagem de erro
+                        }
+                    }
+                }
+
+                // Salva as alterações no banco de dados
+                db.SaveChanges();
+            }
+
+            // Limpa o carrinho após o pagamento bem-sucedido
+            Session["Carrinho"] = null;
+
+            // Exibe a página de confirmação com sucesso
             ViewBag.Mensagem = "Pagamento realizado com sucesso! Obrigado por seu pedido.";
             return View("Confirmacao");
         }
-
     }
 }

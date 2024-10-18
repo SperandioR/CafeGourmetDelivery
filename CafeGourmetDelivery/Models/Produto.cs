@@ -12,5 +12,8 @@ namespace CafeGourmetDelivery.Models
         public string DescricaoProduto { get; set; }
         public decimal Preco { get; set; }
         public string CaminhoImagem { get; set; }
+        
+        //Verifica a quantidade disponivel em estoque.
+        public int QuantidadeDisponivel { get; set; }
     }
 }

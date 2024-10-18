@@ -1,4 +1,4 @@
-﻿﻿@{
+﻿@{
     ViewBag.Title = "Confirmação de Pedido";
 }
 
@@ -11,7 +11,16 @@
             <img src="~/Content/imagens/sucesso.png" class="img-fluid pedido-sucesso-img" alt="Pedido Confirmado" style="max-width: 150px;">
         </div>
 
+        <!-- Mensagem de confirmação -->
         <p class="lead text-muted">@ViewBag.Mensagem</p>
+
+        <!-- Exibir o valor total do pedido, caso tenha sido processado -->
+        @if (ViewBag.TotalPedido != null)
+        {
+            <p class="text-muted mb-4">
+                Valor Total do Pedido: <strong>R$ @(ViewBag.TotalPedido.ToString("0.00"))</strong>
+            </p>
+        }
 
         <p class="text-muted mb-4">
             Seu pedido está sendo preparado com carinho e será processado em breve.

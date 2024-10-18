@@ -129,6 +129,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202410181956450_InitialCreate.cs" />
+    <Compile Include="Migrations\202410181956450_InitialCreate.designer.cs">
+      <DependentUpon>202410181956450_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202410182037038_AdicionarQuantidadeDisponivel.cs" />
+    <Compile Include="Migrations\202410182037038_AdicionarQuantidadeDisponivel.designer.cs">
+      <DependentUpon>202410182037038_AdicionarQuantidadeDisponivel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\Carrinho.cs" />
     <Compile Include="Models\Produto.cs" />
@@ -237,6 +246,14 @@
     <Content Include="Scripts\bootstrap.bundle.js.map" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202410181956450_InitialCreate.resx">
+      <DependentUpon>202410181956450_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202410182037038_AdicionarQuantidadeDisponivel.resx">
+      <DependentUpon>202410182037038_AdicionarQuantidadeDisponivel.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

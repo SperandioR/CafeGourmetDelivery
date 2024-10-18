@@ -1,57 +1,59 @@
-﻿@{
-    ViewBag.Title = "Pagamento";
-}
+﻿
+    @{
+        ViewBag.Title = "Pagamento";
+    }
 
-<!-- Seção de Pagamento -->
-<div class="container py-5">
-    <div class="pagamento-section card p-4">
-        <h2 class="text-center mb-4">Pagamento</h2>
+    <!-- Seção de Pagamento -->
+    <div class="container py-5">
+        <div class="pagamento-section card p-4">
+            <h2 class="text-center mb-4">Pagamento</h2>
 
-        <!-- Resumo do Pedido -->
-        <div class="card-body d-flex flex-column align-items-center">
-            @if (!string.IsNullOrEmpty(ViewBag.NomeProduto))
+            <!-- Resumo do Pedido -->
+            <div class="card-body d-flex flex-column align-items-center">
+                @if (!string.IsNullOrEmpty(ViewBag.NomeProduto) && ViewBag.Quantidade != null)
+                {
+                    <h4 class="card-title mb-3 text-brown">@ViewBag.NomeProduto</h4>
+                    <p class="text-muted">Quantidade: @ViewBag.Quantidade</p>
+                    <p class="menu-price"><strong>Total: R$ @(ViewBag.PrecoTotal.ToString("0.00"))</strong></p>
+                }
+                else
+                {
+                    <h4 class="card-title mb-3 text-brown">Produto não disponível</h4>
+                    <p class="text-danger">Não há produtos no carrinho.</p>
+                }
+            </div>
+
+            <!-- Verifica se o produto está disponível antes de mostrar o formulário -->
+            @if (ViewBag.PrecoTotal != null)
             {
-                <h4 class="card-title mb-3 text-brown">@ViewBag.NomeProduto</h4>
+                <!-- Formulário de Pagamento -->
+                <form action="@Url.Action("ConfirmarPagamento", "Cafe")" method="post" class="pagamento-form mt-4">
+                    <div class="form-group">
+                        <label for="nome" class="font-weight-bold">Nome do Titular do Cartão:</label>
+                        <input type="text" class="form-control form-control-lg mt-2" id="nome" name="nome" required>
+
+                        <label for="numeroCartao" class="font-weight-bold mt-4">Número do Cartão:</label>
+                        <input type="text" class="form-control form-control-lg mt-2" id="numeroCartao" name="numeroCartao" required>
+
+                        <label for="validade" class="font-weight-bold mt-4">Data de Validade:</label>
+                        <input type="text" class="form-control form-control-lg mt-2" id="validade" name="validade" placeholder="MM/AA" required>
+
+                        <label for="cvv" class="font-weight-bold mt-4">CVV:</label>
+                        <input type="text" class="form-control form-control-lg mt-2" id="cvv" name="cvv" required>
+                    </div>
+
+                    <!-- Botão de Pagamento -->
+                    <div class="text-center mt-5">
+                        <button type="submit" class="btn btn-success btn-lg px-5 py-3" style="background-color: #6f4e37; border: none;">Finalizar Pagamento</button>
+                    </div>
+                </form>
             }
             else
             {
-                <h4 class="card-title mb-3 text-brown">Produto não disponível</h4>
+                <p class="text-danger">O produto não está disponível para compra.</p>
             }
-            <p class="text-muted">Quantidade: @ViewBag.Quantidade ?? 0</p>
-            <p class="menu-price"><strong>Total: R$ @(ViewBag.PrecoTotal != null ? ViewBag.PrecoTotal.ToString("0.00") : "0.00")</strong></p>
         </div>
-
-        <!-- Verifica se o produto está disponível antes de mostrar o formulário -->
-        @if (ViewBag.PrecoTotal != null)
-        {
-            <!-- Formulário de Pagamento -->
-            <form action="@Url.Action("ConfirmarPagamento", "Cafe")" method="post" class="pagamento-form mt-4">
-                <div class="form-group">
-                    <label for="nome" class="font-weight-bold">Nome do Titular do Cartão:</label>
-                    <input type="text" class="form-control form-control-lg mt-2" id="nome" name="nome" required>
-
-                    <label for="numeroCartao" class="font-weight-bold mt-4">Número do Cartão:</label>
-                    <input type="text" class="form-control form-control-lg mt-2" id="numeroCartao" name="numeroCartao" required>
-
-                    <label for="validade" class="font-weight-bold mt-4">Data de Validade:</label>
-                    <input type="text" class="form-control form-control-lg mt-2" id="validade" name="validade" placeholder="MM/AA" required>
-
-                    <label for="cvv" class="font-weight-bold mt-4">CVV:</label>
-                    <input type="text" class="form-control form-control-lg mt-2" id="cvv" name="cvv" required>
-                </div>
-
-                <!-- Botão de Pagamento -->
-                <div class="text-center mt-5">
-                    <button type="submit" class="btn btn-success btn-lg px-5 py-3" style="background-color: #6f4e37; border: none;">Finalizar Pagamento</button>
-                </div>
-            </form>
-        }
-        else
-        {
-            <p class="text-danger">O produto não está disponível para compra.</p>
-        }
     </div>
-</div>
 
-<link rel="stylesheet" href="~/Content/Site.css" />
+    <link rel="stylesheet" href="~/Content/Site.css" />
 
