@@ -216,6 +216,7 @@
     <Content Include="Views\Cafe\VerCarrinho.cshtml" />
     <Content Include="Views\Cafe\Confirmacao.cshtml" />
     <Content Include="Views\Cafe\Login.cshtml" />
+    <Content Include="Views\Cafe\Cadastrar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

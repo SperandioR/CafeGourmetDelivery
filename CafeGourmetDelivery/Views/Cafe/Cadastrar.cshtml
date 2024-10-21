@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "Cadastrar";
+}
+
+<div class="container py-5">
+    <h2 class="text-center mb-5" style="font-weight: bold; font-size: 2.5rem;">Cadastro</h2>
+
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form method="post" action="@Url.Action("Cadastrar", "Cliente")">
+                <div class="form-group">
+                    <label for="nome">Nome:</label>
+                    <input type="text" class="form-control" id="nome" name="nome" required />
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" class="form-control" id="email" name="email" required />
+                </div>
+                <div class="form-group">
+                    <label for="senha">Senha:</label>
+                    <input type="password" class="form-control" id="senha" name="senha" required />
+                </div>
+                <div class="form-group">
+                    <label for="confirmarSenha">Confirmar Senha:</label>
+                    <input type="password" class="form-control" id="confirmarSenha" name="confirmarSenha" required />
+                </div>
+                <div class="text-center mt-4">
+                    <button type="submit" class="btn btn-primary btn-lg px-5 py-3">Cadastrar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<link rel="stylesheet" href="~/Content/Site.css" />
