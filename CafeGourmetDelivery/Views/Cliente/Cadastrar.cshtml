@@ -2,33 +2,66 @@
     ViewBag.Title = "Cadastrar";
 }
 
-<div class="container py-5">
-    <h2 class="text-center mb-5" style="font-weight: bold; font-size: 2.5rem;">Cadastro</h2>
+<!-- Container principal para centralizar o conteúdo -->
+<div class="login-background d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+    <div class="card shadow-lg p-5 d-flex justify-content-center" style="width: 100%; max-width: 500px; border-radius: 15px; background-color: #f4f1eb; min-height: 450px;">
+        <h2 class="text-center mb-4 text-brown" style="font-weight: bold;">Cadastrar</h2>
 
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-            <form method="post" action="@Url.Action("Cadastrar", "Cliente")">
-                <div class="form-group">
-                    <label for="nome">Nome:</label>
-                    <input type="text" class="form-control" id="nome" name="nome" required />
+        <!-- Formulário de Cadastro -->
+        <form method="post" action="@Url.Action("Cadastrar", "Cliente")" class="d-flex flex-column justify-content-center">
+            <div class="form-group">
+                <label for="nome" class="text-brown">Nome:</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" style="background-color: #e0dcd5; border: none;">
+                            <i class="fas fa-user"></i>
+                        </span>
+                    </div>
+                    <input type="text" class="form-control" id="nome" name="nome" placeholder="Digite seu nome" required style="border: 1px solid #e0dcd5; border-left: none;">
                 </div>
-                <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="email" class="form-control" id="email" name="email" required />
+            </div>
+
+            <div class="form-group mt-3">
+                <label for="email" class="text-brown">Email:</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" style="background-color: #e0dcd5; border: none;">
+                            <i class="fas fa-envelope"></i>
+                        </span>
+                    </div>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Digite seu email" required style="border: 1px solid #e0dcd5; border-left: none;">
                 </div>
-                <div class="form-group">
-                    <label for="senha">Senha:</label>
-                    <input type="password" class="form-control" id="senha" name="senha" required />
+            </div>
+
+            <div class="form-group mt-3">
+                <label for="senha" class="text-brown">Senha:</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" style="background-color: #e0dcd5; border: none;">
+                            <i class="fas fa-lock"></i>
+                        </span>
+                    </div>
+                    <input type="password" class="form-control" id="senha" name="senha" placeholder="Digite sua senha" required style="border: 1px solid #e0dcd5; border-left: none;">
                 </div>
-                <div class="form-group">
-                    <label for="confirmarSenha">Confirmar Senha:</label>
-                    <input type="password" class="form-control" id="confirmarSenha" name="confirmarSenha" required />
+            </div>
+
+            <div class="form-group mt-3">
+                <label for="confirmarSenha" class="text-brown">Confirmar Senha:</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" style="background-color: #e0dcd5; border: none;">
+                            <i class="fas fa-lock"></i>
+                        </span>
+                    </div>
+                    <input type="password" class="form-control" id="confirmarSenha" name="confirmarSenha" placeholder="Confirme sua senha" required style="border: 1px solid #e0dcd5; border-left: none;">
                 </div>
-                <div class="text-center mt-4">
-                    <button type="submit" class="btn btn-primary btn-lg px-5 py-3">Cadastrar</button>
-                </div>
-            </form>
-        </div>
+            </div>
+
+            <!-- Botão de Cadastro -->
+            <div class="text-center mt-4">
+                <button type="submit" class="btn btn-primary btn-lg w-100" style="background-color: #6f4e37; border: none;">Cadastrar</button>
+            </div>
+        </form>
     </div>
 </div>
 

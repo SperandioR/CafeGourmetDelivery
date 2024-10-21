@@ -234,7 +234,9 @@ h2.text-light, h4.text-light {
 }
 
 /* Estilos para a página de login */
-.login-background {
+.login-background,
+.cadastrar-background
+{
     background-color: #f7f3ed; /* Fundo suave */
     padding: 20px;
 }
