@@ -214,6 +214,7 @@
     <Content Include="Views\Cafe\Pagamento.cshtml" />
     <Content Include="Views\Cafe\VerCarrinho.cshtml" />
     <Content Include="Views\Cafe\Confirmacao.cshtml" />
+    <Content Include="Views\Cafe\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
