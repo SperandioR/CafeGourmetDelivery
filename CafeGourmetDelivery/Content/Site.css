@@ -233,10 +233,9 @@ h2.text-light, h4.text-light {
     }
 }
 
-/* Estilos para a página de login */
+/* Estilos para a página de login e cadastro */
 .login-background,
-.cadastrar-background
-{
+.cadastrar-background {
     background-color: #f7f3ed; /* Fundo suave */
     padding: 20px;
 }
@@ -265,7 +264,7 @@ h2.text-light, h4.text-light {
         border-color: #6f4e37;
     }
 
-/* Botão de login */
+/* Botão de login e cadastro */
 .btn-primary {
     background-color: #6f4e37;
     border-color: #6f4e37;
@@ -291,5 +290,51 @@ h2.text-light, h4.text-light {
         text-decoration: underline;
     }
 
+/* Centralizando os campos do formulário na página de cadastro */
+.cadastro-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.cadastro-card {
+    width: 100%;
+    max-width: 400px;
+    padding: 30px;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Título centralizado e estilizado */
+h2.text-center {
+    font-weight: bold;
+    color: #6f4e37;
+    margin-bottom: 30px;
+}
+
+/* Botão de cadastro */
+.btn-lg {
+    background-color: #6f4e37;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+    .btn-lg:hover {
+        background-color: #5d4037;
+    }
+
+/* Estilo responsivo para cadastro */
+@media (max-width: 768px) {
+    .cadastro-card {
+        padding: 20px;
+        margin: 0 15px;
+    }
+
+    h2.text-center {
+        font-size: 1.8rem;
+    }
+}
 
 </style >
