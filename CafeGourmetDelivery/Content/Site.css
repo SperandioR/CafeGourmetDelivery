@@ -61,7 +61,7 @@ body {
     color: #e0e0e0;
 }
 
-/*Estilos adicionais para melhorar a apresentação*/ 
+/*Estilos adicionais para melhorar a apresentação*/
 
 <style >
 /* Estilo geral */
@@ -232,5 +232,62 @@ h2.text-light, h4.text-light {
         transform: scale(1);
     }
 }
+
+/* Estilos para a página de login */
+.login-background {
+    background-color: #f7f3ed; /* Fundo suave */
+    padding: 20px;
+}
+
+.card {
+    border-radius: 15px;
+    background-color: #fff; /* Fundo do cartão */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+/* Estilo dos ícones no formulário */
+.input-group-text {
+    background-color: #f4f1eb; /* Cor do fundo dos ícones */
+    border-right: none;
+    color: #6f4e37; /* Cor do ícone */
+}
+
+/* Estilos dos campos de formulário */
+.form-control {
+    border-radius: 0;
+    border: 1px solid #ddd;
+}
+
+    .form-control:focus {
+        box-shadow: none;
+        border-color: #6f4e37;
+    }
+
+/* Botão de login */
+.btn-primary {
+    background-color: #6f4e37;
+    border-color: #6f4e37;
+    transition: background-color 0.3s ease;
+}
+
+    .btn-primary:hover {
+        background-color: #5d4037;
+        border-color: #5d4037;
+    }
+
+/* Texto e link */
+.text-brown {
+    color: #6f4e37;
+}
+
+.text-primary {
+    color: #007bff;
+}
+
+    .text-primary:hover {
+        color: #0056b3;
+        text-decoration: underline;
+    }
+
 
 </style >
