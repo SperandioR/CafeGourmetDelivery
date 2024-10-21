@@ -5,12 +5,12 @@ namespace CafeGourmetDelivery.Controllers
     public class ClienteController : Controller
     {
         // GET: Cliente/Login
-        public ActionResult Login()
+       public ActionResult Login()
         {
             return View();
         }
 
-        // GET: Cliente/Cadastrar
+        // Get: Cliente/Cadastrar
         public ActionResult Cadastrar()
         {
             return View();

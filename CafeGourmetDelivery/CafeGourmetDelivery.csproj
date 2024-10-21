@@ -215,13 +215,12 @@
     <Content Include="Views\Cafe\Pagamento.cshtml" />
     <Content Include="Views\Cafe\VerCarrinho.cshtml" />
     <Content Include="Views\Cafe\Confirmacao.cshtml" />
-    <Content Include="Views\Cafe\Login.cshtml" />
+    <Content Include="Views\Cliente\Login.cshtml" />
     <Content Include="Views\Cafe\Cadastrar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Carrinho\" />
-    <Folder Include="Views\Cliente\" />
     <Folder Include="Views\Pedido\" />
   </ItemGroup>
   <ItemGroup>
