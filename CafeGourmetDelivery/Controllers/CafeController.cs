@@ -20,9 +20,8 @@ namespace CafeGourmetDelivery.Controllers
         {
             using (var context = new ApplicationDbContext())
             {
-                // Busca os produtos do banco de dados
                 var produtos = context.Produtos.ToList();
-                return View(produtos); // Envia os produtos para a view
+                return View(produtos);
             }
         }
 
@@ -41,9 +40,14 @@ namespace CafeGourmetDelivery.Controllers
         // Ação para a página de promoções 
         public ActionResult Promocoes()
         {
-            return View();
-        }
+            var promocoes = new List<Produto>
+            {
+                new Produto { Id = 1, NomeProduto = "Promoção Café Expresso", Preco = 8.00m, CaminhoImagem = "imagens/copodecafe.png" },
+                new Produto { Id = 2, NomeProduto = "Promoção Café com Leite", Preco = 10.00m, CaminhoImagem = "imagens/cafecomleite.png" }
+            };
 
+            return View(promocoes);
+        }
 
         // Ação para a página de pagamento
         public ActionResult Pagamento()
@@ -56,7 +60,6 @@ namespace CafeGourmetDelivery.Controllers
                 return View();
             }
 
-            // Passando informações do carrinho para o ViewBag
             ViewBag.NomeProduto = carrinho.Itens.FirstOrDefault()?.NomeProduto;
             ViewBag.Quantidade = carrinho.Itens.FirstOrDefault()?.Quantidade;
             ViewBag.PrecoTotal = carrinho.ObterTotal();
@@ -64,13 +67,11 @@ namespace CafeGourmetDelivery.Controllers
             return View();
         }
 
-
         // Método de Ação para fazer o pedido de um produto
         public ActionResult Pedido(string nomeProduto)
         {
             ViewBag.NomeProduto = nomeProduto;
 
-            // Definindo a imagem com base no nome do produto recebido
             switch (nomeProduto)
             {
                 case "Café Expresso":
@@ -119,7 +120,6 @@ namespace CafeGourmetDelivery.Controllers
         [HttpPost]
         public ActionResult ConfirmarPedido(string nomeProduto, int quantidade)
         {
-            // Calcula o valor total com base no produto selecionado
             decimal precoUnitario = 0;
             switch (nomeProduto)
             {
@@ -145,7 +145,6 @@ namespace CafeGourmetDelivery.Controllers
 
             decimal precoTotal = precoUnitario * quantidade;
 
-            // Passa as informações para a view de pagamento
             ViewBag.NomeProduto = nomeProduto;
             ViewBag.Quantidade = quantidade;
             ViewBag.PrecoTotal = precoTotal;
@@ -168,84 +167,66 @@ namespace CafeGourmetDelivery.Controllers
                     var produto = carrinho.Itens.FirstOrDefault(i => i.NomeProduto == nomeProduto);
                     if (produto != null)
                     {
-                        produto.Quantidade = novaQuantidade; // Atualiza a quantidade
+                        produto.Quantidade = novaQuantidade;
                     }
                     else
                     {
-                        // Caso o produto não exista no carrinho, adicione um novo
-                        // Aqui, você pode precisar buscar a informação do produto de um repositório ou banco de dados
-                        // Exemplo:
-                        // var produtoInfo = ...; // Busque o produto
-                        // carrinho.AdicionarItem(produtoInfo.Nome, produtoInfo.Imagem, produtoInfo.Preco, novaQuantidade);
+                        carrinho.AdicionarItem(nomeProduto, "~/Content/imagens/produto-exemplo.png", 0, novaQuantidade);
                     }
                 }
                 else
                 {
-                    // Se a quantidade é 0, remova o item do carrinho
                     carrinho.Itens.RemoveAll(i => i.NomeProduto == nomeProduto);
                 }
             }
 
-            Session["Carrinho"] = carrinho; // Atualiza a sessão com o carrinho modificado
-
-            return RedirectToAction("VerCarrinho"); // Redireciona para a página do carrinho
+            Session["Carrinho"] = carrinho;
+            return RedirectToAction("VerCarrinho");
         }
-
 
         [HttpPost]
         public ActionResult ConfirmarPagamento(string nome, string numeroCartao, string validade, string cvv)
         {
             var carrinho = Session["Carrinho"] as Carrinho ?? new Carrinho();
 
-            // Verifique se o carrinho tem itens
             if (carrinho.Itens.Count == 0)
             {
                 ViewBag.Mensagem = "O carrinho está vazio. Não é possível processar o pagamento.";
-                return View("Pagamento"); // Retorna para a página de pagamento com a mensagem de erro
+                return View("Pagamento");
             }
 
-            // Simulação de validação do pagamento (aqui você pode integrar com um serviço real de pagamento)
             if (string.IsNullOrWhiteSpace(nome) || string.IsNullOrWhiteSpace(numeroCartao) ||
                 string.IsNullOrWhiteSpace(validade) || string.IsNullOrWhiteSpace(cvv))
             {
                 ViewBag.Mensagem = "Por favor, preencha todos os campos corretamente.";
-                return View("Pagamento"); // Retorna para a mesma view com a mensagem
+                return View("Pagamento");
             }
 
-            // Se o pagamento for simulado como bem-sucedido, atualize o estoque dos produtos
             using (var db = new ApplicationDbContext())
             {
                 foreach (var item in carrinho.Itens)
                 {
-                    // Localiza o produto no banco de dados
                     var produto = db.Produtos.FirstOrDefault(p => p.NomeProduto == item.NomeProduto);
                     if (produto != null)
                     {
-                        // Verifica se há quantidade disponível
                         if (produto.QuantidadeDisponivel >= item.Quantidade)
                         {
-                            // Subtrai a quantidade comprada do estoque
                             produto.QuantidadeDisponivel -= item.Quantidade;
                         }
                         else
                         {
                             ViewBag.Mensagem = $"Estoque insuficiente para o produto {produto.NomeProduto}.";
-                            return View("Pagamento"); // Retorna para a página de pagamento com a mensagem de erro
+                            return View("Pagamento");
                         }
                     }
                 }
 
-                // Salva as alterações no banco de dados
                 db.SaveChanges();
             }
 
-            // Limpa o carrinho após o pagamento bem-sucedido
             Session["Carrinho"] = null;
-
-            // Exibe a página de confirmação com sucesso
             ViewBag.Mensagem = "Pagamento realizado com sucesso! Obrigado por seu pedido.";
             return View("Confirmacao");
         }
     }
-
 }

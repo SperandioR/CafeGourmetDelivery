@@ -6,39 +6,41 @@
     <h2 class="text-center mb-5" style="font-weight: bold; font-size: 2.5rem; color: #6f4e37;">Promoções Especiais</h2>
 
     <div class="row">
-        <!-- Exemplo de item em promoção -->
+        <!-- Item em promoção: Café Expresso -->
         <div class="col-md-4 text-center mb-4">
-            <div class="card shadow-sm promo-card">
-                <img src="~/Content/imagens/copodecafe.png" class="card-img-top" alt="Café Expresso em promoção">
+            <div class="card shadow-sm promo-card" style="border-radius: 15px;">
+                <img src="~/Content/imagens/copodecafe.png" class="card-img-top" alt="Café Expresso em promoção" style="border-top-left-radius: 15px; border-top-right-radius: 15px;">
                 <div class="card-body">
-                    <h4 class="card-title">Café Expresso</h4>
+                    <h4 class="card-title text-brown" style="font-weight: bold;">Café Expresso</h4>
                     <p class="text-muted">De: <span class="text-decoration-line-through">R$10,00</span></p>
-                    <p class="promo-price">Por: R$8,00</p>
-                    <button class="btn btn-dark mt-2">Aproveitar Promoção</button>
+                    <p class="promo-price" style="font-size: 1.3rem; color: #d9534f;">Por: R$8,00</p>
+                    <button onclick="location.href='@Url.Action("AdicionarAoCarrinho", "Cafe", new { idProduto = 1 })'" class="btn btn-primary mt-2" style="background-color: #6f4e37; border: none;">Aproveitar Promoção</button>
                 </div>
             </div>
         </div>
 
+        <!-- Item em promoção: Café com Leite -->
         <div class="col-md-4 text-center mb-4">
-            <div class="card shadow-sm promo-card">
-                <img src="~/Content/imagens/cafecomleite.png" class="card-img-top" alt="Café com Leite em promoção">
+            <div class="card shadow-sm promo-card" style="border-radius: 15px;">
+                <img src="~/Content/imagens/cafecomleite.png" class="card-img-top" alt="Café com Leite em promoção" style="border-top-left-radius: 15px; border-top-right-radius: 15px;">
                 <div class="card-body">
-                    <h4 class="card-title">Café com Leite</h4>
+                    <h4 class="card-title text-brown" style="font-weight: bold;">Café com Leite</h4>
                     <p class="text-muted">De: <span class="text-decoration-line-through">R$12,00</span></p>
-                    <p class="promo-price">Por: R$10,00</p>
-                    <button class="btn btn-dark mt-2">Aproveitar Promoção</button>
+                    <p class="promo-price" style="font-size: 1.3rem; color: #d9534f;">Por: R$10,00</p>
+                    <button onclick="location.href='@Url.Action("AdicionarAoCarrinho", "Cafe", new { idProduto = 2 })'" class="btn btn-primary mt-2" style="background-color: #6f4e37; border: none;">Aproveitar Promoção</button>
                 </div>
             </div>
         </div>
 
+        <!-- Item em promoção: Cappuccino -->
         <div class="col-md-4 text-center mb-4">
-            <div class="card shadow-sm promo-card">
-                <img src="~/Content/imagens/cappuccino.png" class="card-img-top" alt="Cappuccino em promoção">
+            <div class="card shadow-sm promo-card" style="border-radius: 15px;">
+                <img src="~/Content/imagens/cappuccino.png" class="card-img-top" alt="Cappuccino em promoção" style="border-top-left-radius: 15px; border-top-right-radius: 15px;">
                 <div class="card-body">
-                    <h4 class="card-title">Cappuccino</h4>
+                    <h4 class="card-title text-brown" style="font-weight: bold;">Cappuccino</h4>
                     <p class="text-muted">De: <span class="text-decoration-line-through">R$14,00</span></p>
-                    <p class="promo-price">Por: R$11,00</p>
-                    <button class="btn btn-dark mt-2">Aproveitar Promoção</button>
+                    <p class="promo-price" style="font-size: 1.3rem; color: #d9534f;">Por: R$11,00</p>
+                    <button onclick="location.href='@Url.Action("AdicionarAoCarrinho", "Cafe", new { idProduto = 3 })'" class="btn btn-primary mt-2" style="background-color: #6f4e37; border: none;">Aproveitar Promoção</button>
                 </div>
             </div>
         </div>
