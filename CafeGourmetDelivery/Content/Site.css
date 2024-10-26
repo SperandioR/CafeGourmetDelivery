@@ -337,4 +337,22 @@ h2.text-center {
     }
 }
 
+/* Estilo para as promoções */
+.promo-card {
+    border-radius: 10px;
+    background-color: #fff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+    .promo-card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+.promo-price {
+    font-size: 1.5rem;
+    color: #6f4e37;
+    font-weight: bold;
+}
+
 </style >
