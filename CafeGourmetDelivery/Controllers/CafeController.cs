@@ -117,6 +117,8 @@ namespace CafeGourmetDelivery.Controllers
             return View(carrinho);
         }
 
+
+
         [HttpPost]
         public ActionResult ConfirmarPedido(string nomeProduto, int quantidade)
         {
@@ -189,12 +191,14 @@ namespace CafeGourmetDelivery.Controllers
         {
             var carrinho = Session["Carrinho"] as Carrinho ?? new Carrinho();
 
+            // Verifique se o carrinho tem itens
             if (carrinho.Itens.Count == 0)
             {
                 ViewBag.Mensagem = "O carrinho está vazio. Não é possível processar o pagamento.";
                 return View("Pagamento");
             }
 
+            // Simulação de validação do pagamento
             if (string.IsNullOrWhiteSpace(nome) || string.IsNullOrWhiteSpace(numeroCartao) ||
                 string.IsNullOrWhiteSpace(validade) || string.IsNullOrWhiteSpace(cvv))
             {
@@ -224,9 +228,16 @@ namespace CafeGourmetDelivery.Controllers
                 db.SaveChanges();
             }
 
-            Session["Carrinho"] = null;
+            // Passa os itens do carrinho para a confirmação
+            ViewBag.ItensPedido = carrinho.Itens;
+            ViewBag.PrecoTotal = carrinho.ObterTotal();
             ViewBag.Mensagem = "Pagamento realizado com sucesso! Obrigado por seu pedido.";
+
+            // Limpa o carrinho após o pagamento
+            Session["Carrinho"] = null;
+
             return View("Confirmacao");
         }
+
     }
 }
