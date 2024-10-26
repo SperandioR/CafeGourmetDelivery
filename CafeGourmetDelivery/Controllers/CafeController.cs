@@ -38,6 +38,13 @@ namespace CafeGourmetDelivery.Controllers
             return View();
         }
 
+        // Ação para a página de promoções 
+        public ActionResult Promocoes()
+        {
+            return View();
+        }
+
+
         // Ação para a página de pagamento
         public ActionResult Pagamento()
         {
@@ -240,4 +247,5 @@ namespace CafeGourmetDelivery.Controllers
             return View("Confirmacao");
         }
     }
+
 }
