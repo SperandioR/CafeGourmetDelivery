@@ -50,22 +50,57 @@ namespace CafeGourmetDelivery.Controllers
         }
 
         // Ação para a página de pagamento
-        public ActionResult Pagamento()
+        public ActionResult Pagamento(int? idProduto = null)
         {
-            var carrinho = Session["Carrinho"] as Carrinho ?? new Carrinho();
+            // Verifica se foi fornecido um idProduto para promoções
+            if (idProduto.HasValue)
+            {
+                using (var db = new ApplicationDbContext())
+                {
+                    var produto = db.Produtos.FirstOrDefault(p => p.Id == idProduto.Value);
+                    if (produto != null)
+                    {
+                        // Configura as informações para exibição na página de pagamento
+                        ViewBag.NomeProduto = produto.NomeProduto;
+                        ViewBag.PrecoTotal = produto.Preco;
+                        ViewBag.Quantidade = 1; // Define quantidade padrão para promoções
 
+                        // Armazena o item no "ItensPedido" para exibição na página de confirmação
+                        Session["ItensPedido"] = new List<ItemCarrinho>
+                {
+                    new ItemCarrinho { NomeProduto = produto.NomeProduto, Preco = produto.Preco, Quantidade = 1 }
+                };
+
+                        return View();
+                    }
+                    else
+                    {
+                        // Redireciona para a página de promoções se o produto não for encontrado
+                        ViewBag.Mensagem = "Produto em promoção não encontrado.";
+                        return RedirectToAction("Promocoes");
+                    }
+                }
+            }
+
+            // Se não há idProduto, procede com o carrinho de compras
+            var carrinho = Session["Carrinho"] as Carrinho ?? new Carrinho();
             if (carrinho.Itens.Count == 0)
             {
                 ViewBag.Mensagem = "Seu carrinho está vazio!";
                 return View();
             }
 
+            // Configura informações do carrinho para exibição no pagamento
             ViewBag.NomeProduto = carrinho.Itens.FirstOrDefault()?.NomeProduto;
             ViewBag.Quantidade = carrinho.Itens.FirstOrDefault()?.Quantidade;
             ViewBag.PrecoTotal = carrinho.ObterTotal();
 
+            // Salva os itens do carrinho para exibição na confirmação
+            Session["ItensPedido"] = carrinho.Itens;
+
             return View();
         }
+
 
         // Método de Ação para fazer o pedido de um produto
         public ActionResult Pedido(string nomeProduto)

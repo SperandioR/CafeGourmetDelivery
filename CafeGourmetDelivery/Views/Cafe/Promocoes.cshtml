@@ -14,7 +14,8 @@
                     <h4 class="card-title text-brown" style="font-weight: bold;">Café Expresso</h4>
                     <p class="text-muted">De: <span class="text-decoration-line-through">R$10,00</span></p>
                     <p class="promo-price" style="font-size: 1.3rem; color: #d9534f;">Por: R$8,00</p>
-                    <button onclick="location.href='@Url.Action("AdicionarAoCarrinho", "Cafe", new { idProduto = 1 })'" class="btn btn-primary mt-2" style="background-color: #6f4e37; border: none;">Aproveitar Promoção</button>
+                    <!-- Botão para redirecionar ao pagamento -->
+                    <button onclick="location.href='@Url.Action("Pagamento", "Cafe", new { idProduto = 1 })'" class="btn btn-primary mt-2" style="background-color: #6f4e37; border: none;">Aproveitar Promoção</button>
                 </div>
             </div>
         </div>
@@ -27,7 +28,7 @@
                     <h4 class="card-title text-brown" style="font-weight: bold;">Café com Leite</h4>
                     <p class="text-muted">De: <span class="text-decoration-line-through">R$12,00</span></p>
                     <p class="promo-price" style="font-size: 1.3rem; color: #d9534f;">Por: R$10,00</p>
-                    <button onclick="location.href='@Url.Action("AdicionarAoCarrinho", "Cafe", new { idProduto = 2 })'" class="btn btn-primary mt-2" style="background-color: #6f4e37; border: none;">Aproveitar Promoção</button>
+                    <button onclick="location.href='@Url.Action("Pagamento", "Cafe", new { idProduto = 2 })'" class="btn btn-primary mt-2" style="background-color: #6f4e37; border: none;">Aproveitar Promoção</button>
                 </div>
             </div>
         </div>
@@ -40,7 +41,7 @@
                     <h4 class="card-title text-brown" style="font-weight: bold;">Cappuccino</h4>
                     <p class="text-muted">De: <span class="text-decoration-line-through">R$14,00</span></p>
                     <p class="promo-price" style="font-size: 1.3rem; color: #d9534f;">Por: R$11,00</p>
-                    <button onclick="location.href='@Url.Action("AdicionarAoCarrinho", "Cafe", new { idProduto = 3 })'" class="btn btn-primary mt-2" style="background-color: #6f4e37; border: none;">Aproveitar Promoção</button>
+                    <button onclick="location.href='@Url.Action("Pagamento", "Cafe", new { idProduto = 3 })'" class="btn btn-primary mt-2" style="background-color: #6f4e37; border: none;">Aproveitar Promoção</button>
                 </div>
             </div>
         </div>
