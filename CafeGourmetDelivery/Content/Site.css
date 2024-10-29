@@ -19,11 +19,11 @@ textarea {
     max-width: 280px;
 }
 
-
 /* site.css */
 
 body {
     font-family: 'Poppins', sans-serif;
+    background-color: #d7c2b8; /* Fundo do site em tom de marrom claro */
 }
 
 .hero-section {
@@ -41,49 +41,7 @@ body {
     background-color: #6f4e37;
 }
 
-.btn-dark {
-    background-color: #3e2723;
-    border-color: #3e2723;
-}
-
-.menu-preview-section img {
-    max-width: 100%;
-    height: auto;
-    border: 2px solid #4e342e;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.menu-preview-section h4 {
-    color: #ffca28;
-}
-
-.menu-preview-section p {
-    color: #e0e0e0;
-}
-
-/*Estilos adicionais para melhorar a apresentação*/
-
-<style >
-/* Estilo geral */
-body {
-    font-family: 'Arial', sans-serif;
-}
-
-.text-brown {
-    color: #5d4037; /* Marrom sofisticado */
-}
-
-/* Animações para imagens no menu */
-.menu-img {
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-}
-
-    .menu-img:hover {
-        transform: scale(1.05);
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    }
-
-/* Botões */
+/* Botões escuros */
 .btn-dark {
     background-color: #3e2723;
     border-color: #3e2723;
@@ -95,6 +53,49 @@ body {
         background-color: #5d4037;
         border-color: #5d4037;
     }
+
+.menu-preview-section {
+    background-color: #6f4e37;
+    padding: 60px 0;
+    color: #e0e0e0;
+}
+
+/* Estilo da frase "Os mais pedidos" */
+.most-pedidos-title {
+    color: #f3e9dc;
+    font-size: 2rem; /* Ajuste o tamanho conforme desejado */
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: inline-block;
+    text-align: center; /* Centraliza o texto dentro do elemento */
+    margin: 0 auto; /* Centraliza horizontalmente */
+}
+
+/* Estilo da imagem no menu com efeito de interação */
+.menu-img {
+    max-width: 100%;
+    height: auto;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    cursor: pointer; /* Muda o cursor para indicar interatividade */
+}
+
+    .menu-img:hover {
+        transform: scale(1.05); /* Aumenta a imagem ao passar o mouse */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+.menu-preview-section h4 {
+    color: #ffca28;
+}
+
+.menu-preview-section p {
+    color: #e0e0e0;
+}
 
 /* Preço dos produtos */
 .menu-price {
@@ -139,20 +140,14 @@ body {
     }
 }
 
-/*Estilo Customizado - Pedido*/
-
-body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #d7c2b8; /* Fundo do site em tom de marrom claro */
-}
+/* Estilo personalizado - Pedido */
 
 .pedido-form label.quantidade-label {
-    color: #3e2723; /* Marrom escuro */
+    color: #3e2723;
 }
 
-
 .pedido-section {
-    background-color: #f4f1eb; /* Fundo do card em tom caramelo claro */
+    background-color: #f4f1eb;
     box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
     border-radius: 15px;
     padding: 40px;
@@ -160,7 +155,7 @@ body {
 
 .pedido-produto-imagem {
     transition: transform 0.3s ease;
-    border: 5px solid #c1a084; /* Borda em tom caramelo suave */
+    border: 5px solid #c1a084;
 }
 
     .pedido-produto-imagem:hover {
@@ -168,57 +163,55 @@ body {
     }
 
 .btn-confirmar {
-    background-color: #b57c58; /* Marrom claro */
+    background-color: #b57c58;
     color: #fff;
     border: none;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
     .btn-confirmar:hover {
-        background-color: #a76b48; /* Tom de marrom um pouco mais escuro ao passar o mouse */
+        background-color: #a76b48;
         transform: scale(1.05);
     }
 
 .pedido-form label {
-    color: #f8e7d1; /* Cor creme para contraste com o fundo */
+    color: #f8e7d1;
 }
 
 .pedido-form input[type="number"] {
-    border: 2px solid #d5a67a; /* Bordas em tom dourado suave */
+    border: 2px solid #d5a67a;
     background-color: #f2e1d9;
     color: #4b2e2a;
 }
 
     .pedido-form input[type="number"]:focus {
-        border-color: #b57c58; /* Destaque para a borda ao focar */
+        border-color: #b57c58;
     }
 
 h2.text-light, h4.text-light {
-    color: #f8e7d1; /* Cor creme para destacar os títulos */
+    color: #f8e7d1;
 }
 
 .card-body p {
     font-size: 1.1rem;
-    color: #f0d5c0; /* Creme suave para uma leitura mais fácil no fundo claro */
+    color: #f0d5c0;
 }
 
-/* Efeito de destaque para a imagem de sucesso */
 .imagem-destaque {
     animation: pulse 2s infinite;
 }
 
 .pedido-sucesso-img {
-    border: 5px solid #ffca28; /* Contorno dourado para destacar */
-    border-radius: 50%; /* Torna a borda arredondada */
-    box-shadow: 0 0 15px #ffca28; /* Sombra de brilho para destaque */
+    border: 5px solid #ffca28;
+    border-radius: 50%;
+    box-shadow: 0 0 15px #ffca28;
     transition: transform 0.3s ease-in-out;
 }
 
     .pedido-sucesso-img:hover {
-        transform: scale(1.1); /* Aumenta um pouco a imagem ao passar o mouse */
+        transform: scale(1.1);
     }
 
-/* Animação de pulso suave */
 @keyframes pulse {
     0% {
         transform: scale(1);
@@ -236,21 +229,21 @@ h2.text-light, h4.text-light {
 /* Estilos para a página de login e cadastro */
 .login-background,
 .cadastrar-background {
-    background-color: #f7f3ed; /* Fundo suave */
+    background-color: #f7f3ed;
     padding: 20px;
 }
 
 .card {
     border-radius: 15px;
-    background-color: #fff; /* Fundo do cartão */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 /* Estilo dos ícones no formulário */
 .input-group-text {
-    background-color: #f4f1eb; /* Cor do fundo dos ícones */
+    background-color: #f4f1eb;
     border-right: none;
-    color: #6f4e37; /* Cor do ícone */
+    color: #6f4e37;
 }
 
 /* Estilos dos campos de formulário */
@@ -354,5 +347,3 @@ h2.text-center {
     color: #6f4e37;
     font-weight: bold;
 }
-
-</style >
