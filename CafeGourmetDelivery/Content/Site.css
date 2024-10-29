@@ -62,7 +62,7 @@ body {
 
 /* Estilo da frase "Os mais pedidos" */
 .most-pedidos-title {
-    color: #f3e9dc;
+    color: #D4AF37;
     font-size: 2rem; /* Ajuste o tamanho conforme desejado */
     font-weight: bold;
     text-transform: uppercase;
@@ -347,3 +347,37 @@ h2.text-center {
     color: #6f4e37;
     font-weight: bold;
 }
+
+/* Adicionando efeitos nas imagens dos membros da equipe */
+.team-member-img {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Transição suave */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Sombra inicial leve */
+    cursor: pointer; /* Muda o cursor para indicar interatividade */
+}
+
+    .team-member-img:hover {
+        transform: scale(1.1); /* Aumenta a imagem em 10% ao passar o mouse */
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Sombra mais intensa */
+    }
+
+.text-justify {
+    text-align: justify;
+}
+
+.floating-logo {
+    position: absolute;
+    top: 10px; /* Ajuste conforme necessário para posicionar */
+    left: 20px; /* Ajuste conforme necessário para posicionar */
+    z-index: 1000; /* Mantém o logo acima de outros elementos */
+}
+
+    .floating-logo img {
+        height: 150px; /* Tamanho maior do logo */
+        border-radius: 50%; /* Arredonda o logo para um visual moderno */
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Sombra suave */
+        transition: transform 0.3s ease-in-out; /* Transição suave para interação */
+    }
+
+        .floating-logo img:hover {
+            transform: scale(1.1); /* Efeito de zoom ao passar o mouse */
+        }
