@@ -283,7 +283,26 @@ namespace CafeGourmetDelivery.Controllers
             return View("Confirmacao");
         }
 
-       
+        public ActionResult RemoverDoCarrinho(string nomeProduto)
+        {
+            // Recupera o carrinho da sessão
+            var carrinho = Session["Carrinho"] as Carrinho ?? new Carrinho();
+
+            // Encontra o item no carrinho com o nome especificado
+            var itemParaRemover = carrinho.Itens.FirstOrDefault(i => i.NomeProduto == nomeProduto);
+
+            if (itemParaRemover != null)
+            {
+                // Remove o item do carrinho
+                carrinho.Itens.Remove(itemParaRemover);
+                // Atualiza a sessão com o carrinho modificado
+                Session["Carrinho"] = carrinho;
+            }
+
+            // Redireciona de volta para a página do carrinho
+            return RedirectToAction("VerCarrinho");
+        }
+
 
     }
 }
