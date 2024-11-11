@@ -50,9 +50,8 @@ namespace CafeGourmetDelivery.Controllers
         }
 
         // Ação para a página de pagamento
-        public ActionResult Pagamento(int? idProduto = null)
+        public ActionResult Pagamento(int? idProduto = null, decimal? precoPromocional = null)
         {
-            // Verifica se foi fornecido um idProduto para promoções
             if (idProduto.HasValue)
             {
                 using (var db = new ApplicationDbContext())
@@ -60,29 +59,31 @@ namespace CafeGourmetDelivery.Controllers
                     var produto = db.Produtos.FirstOrDefault(p => p.Id == idProduto.Value);
                     if (produto != null)
                     {
+                        // Usar o preço promocional se estiver presente; caso contrário, o preço padrão
+                        decimal preco = precoPromocional ?? produto.Preco;
+
                         // Configura as informações para exibição na página de pagamento
                         ViewBag.NomeProduto = produto.NomeProduto;
-                        ViewBag.PrecoTotal = produto.Preco;
-                        ViewBag.Quantidade = 1; // Define quantidade padrão para promoções
+                        ViewBag.PrecoTotal = preco;
+                        ViewBag.Quantidade = 1;
 
                         // Armazena o item no "ItensPedido" para exibição na página de confirmação
                         Session["ItensPedido"] = new List<ItemCarrinho>
                 {
-                    new ItemCarrinho { NomeProduto = produto.NomeProduto, Preco = produto.Preco, Quantidade = 1 }
+                    new ItemCarrinho { NomeProduto = produto.NomeProduto, Preco = preco, Quantidade = 1 }
                 };
 
                         return View();
                     }
                     else
                     {
-                        // Redireciona para a página de promoções se o produto não for encontrado
                         ViewBag.Mensagem = "Produto em promoção não encontrado.";
                         return RedirectToAction("Promocoes");
                     }
                 }
             }
 
-            // Se não há idProduto, procede com o carrinho de compras
+            // Código para exibir o carrinho, caso nenhum idProduto seja fornecido
             var carrinho = Session["Carrinho"] as Carrinho ?? new Carrinho();
             if (carrinho.Itens.Count == 0)
             {
@@ -90,16 +91,15 @@ namespace CafeGourmetDelivery.Controllers
                 return View();
             }
 
-            // Configura informações do carrinho para exibição no pagamento
             ViewBag.NomeProduto = carrinho.Itens.FirstOrDefault()?.NomeProduto;
             ViewBag.Quantidade = carrinho.Itens.FirstOrDefault()?.Quantidade;
             ViewBag.PrecoTotal = carrinho.ObterTotal();
 
-            // Salva os itens do carrinho para exibição na confirmação
             Session["ItensPedido"] = carrinho.Itens;
 
             return View();
         }
+
 
 
         // Método de Ação para fazer o pedido de um produto
@@ -136,11 +136,20 @@ namespace CafeGourmetDelivery.Controllers
         }
 
         // Método para adicionar um item ao carrinho
-        public ActionResult AdicionarAoCarrinho(string nomeProduto, string caminhoImagem, decimal preco, int quantidade)
+        public ActionResult AdicionarAoCarrinho(string nomeProduto, string caminhoImagem, decimal preco, int quantidade, bool redirectPagamento = false)
         {
+            // Recupera o carrinho da sessão ou cria um novo
             var carrinho = Session["Carrinho"] as Carrinho ?? new Carrinho();
+
+            // Adiciona o item com o preço promocional
             carrinho.AdicionarItem(nomeProduto, caminhoImagem, preco, quantidade);
             Session["Carrinho"] = carrinho;
+
+            // Verifica se deve redirecionar diretamente para o pagamento
+            if (redirectPagamento)
+            {
+                return RedirectToAction("Pagamento");
+            }
 
             return RedirectToAction("VerCarrinho");
         }
@@ -273,6 +282,8 @@ namespace CafeGourmetDelivery.Controllers
 
             return View("Confirmacao");
         }
+
+       
 
     }
 }

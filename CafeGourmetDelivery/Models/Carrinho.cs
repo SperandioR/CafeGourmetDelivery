@@ -33,13 +33,9 @@ namespace CafeGourmetDelivery.Models
             var itemExistente = Itens.FirstOrDefault(i => i.NomeProduto == nomeProduto);
 
             // Se o item já existe, apenas incrementa a quantidade.
-            if (itemExistente != null)
+            if (itemExistente == null)
             {
-                itemExistente.Quantidade += quantidade;
-            }
-            // Se o item não existe, cria um novo item e o adiciona à lista.
-            else
-            {
+                // Adiciona o novo item com o preço promocional
                 Itens.Add(new ItemCarrinho
                 {
                     NomeProduto = nomeProduto,
@@ -47,6 +43,11 @@ namespace CafeGourmetDelivery.Models
                     Preco = preco,
                     Quantidade = quantidade
                 });
+            }
+            else
+            {
+                // Caso o item já exista, atualiza apenas a quantidade
+                itemExistente.Quantidade += quantidade;
             }
         }
 
