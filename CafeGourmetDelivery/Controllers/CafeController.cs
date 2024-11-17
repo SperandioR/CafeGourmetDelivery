@@ -151,6 +151,9 @@ namespace CafeGourmetDelivery.Controllers
                 return RedirectToAction("Pagamento");
             }
 
+            //Metodo para Atualizar a Sessão com a Contagem de Itens no Carrinho
+            Session["CarrinhoItemCount"] = carrinho.Itens.Sum(i => i.Quantidade);
+
             return RedirectToAction("VerCarrinho");
         }
 
