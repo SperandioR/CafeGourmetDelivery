@@ -229,6 +229,9 @@ namespace CafeGourmetDelivery.Controllers
                 }
             }
 
+            //Metodo para Atualizar a Sessão com a Contagem de Itens no Carrinho
+            Session["CarrinhoItemCount"] = carrinho.Itens.Sum(i => i.Quantidade);
+
             Session["Carrinho"] = carrinho;
             return RedirectToAction("VerCarrinho");
         }
@@ -301,6 +304,9 @@ namespace CafeGourmetDelivery.Controllers
                 // Atualiza a sessão com o carrinho modificado
                 Session["Carrinho"] = carrinho;
             }
+
+            //Metodo para Atualizar a Sessão com a Contagem de Itens no Carrinho
+            Session["CarrinhoItemCount"] = carrinho.Itens.Sum(i => i.Quantidade);
 
             // Redireciona de volta para a página do carrinho
             return RedirectToAction("VerCarrinho");

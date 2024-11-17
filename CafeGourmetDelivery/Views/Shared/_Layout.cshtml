@@ -47,7 +47,7 @@
                             <i class="bi bi-cart3" style="font-size: 1.5rem;"></i>
                             <!-- Badge para o número de itens no carrinho -->
                             <span id="cartItemCount" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                                @Session["CarrinhoItemCount"]
+                                @(Session["CarrinhoItemCount"] != null ? Session["CarrinhoItemCount"] : 0)
                             </span>
                         </a>
                     </li>
