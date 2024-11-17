@@ -381,3 +381,15 @@ h2.text-center {
         .floating-logo img:hover {
             transform: scale(1.1); /* Efeito de zoom ao passar o mouse */
         }
+
+/*Estilizando o Ícone Carrinho*/
+.badge {
+    font-size: 0.8rem;
+    padding: 0.4em 0.6em;
+    font-weight: bold;
+    color: #fff;
+}
+
+.position-absolute {
+    position: absolute !important;
+}
