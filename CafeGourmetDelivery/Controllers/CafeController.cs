@@ -286,6 +286,9 @@ namespace CafeGourmetDelivery.Controllers
             // Limpa o carrinho após o pagamento
             Session["Carrinho"] = null;
 
+            // Zera o contador de itens no carrinho
+            Session["CarrinhoItemCount"] = 0;
+
             return View("Confirmacao");
         }
 
