@@ -50,5 +50,5 @@ Integração com o Entity Framework:
 - Login e Autenticação: Implementar um sistema de login para clientes.
 - Interface com Banco de Dados para Pedidos: Salvar os detalhes do pedido e cliente no banco de dados após a confirmação do pagamento.
 
-![Sem título](https://github.com/user-attachments/assets/9e27efb8-5a1f-4af7-8e2f-cf6f9cdb814d)
+![Café_Gourmet](https://github.com/user-attachments/assets/1bc4a911-bcdb-45c9-ac28-ecab99b3165c)
 
